@@ -67,4 +67,4 @@ Content-Length: 60
 {"status":"OK","request_count":"1","timestamp":"1607196274"}
 ```
 
-4. Tag image, and push it on Docker registry. Pull in your application.
+4. Tag image, and push it to Docker registry. Pull in your application.

@@ -1,3 +1,4 @@
+# Create image with all required build tools
 FROM ubuntu:18.04 as build-tools
 
 RUN apt-get update && apt-get install -y \
@@ -8,13 +9,13 @@ RUN apt-get update && apt-get install -y \
 
 RUN pip3 install conan
 
-FROM build-tools
+
+# Build binary
+FROM build-tools as builder
 
 WORKDIR /usr/src/service
 
 COPY . .
-
-EXPOSE 8080
 
 WORKDIR /usr/src/service/build
 
@@ -22,6 +23,11 @@ RUN conan install ..
 RUN cmake ..
 RUN make
 
-WORKDIR /usr/src/service
 
-CMD [ "./build/bin/http-service", "0.0.0.0", "8080" ]
+# Copy binary to fresh ubuntu image
+FROM ubuntu:18.04 as runner
+
+COPY --from=builder /usr/src/service/build/bin/http-service /usr/bin/http-service
+EXPOSE 8080
+
+CMD [ "http-service", "0.0.0.0", "8080" ]
