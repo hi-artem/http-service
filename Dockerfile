@@ -9,8 +9,8 @@ EXPOSE 8080
 WORKDIR /usr/src/service/build
 
 RUN sudo /opt/pyenv/shims/conan install ..
-RUN cmake ..
-RUN make
+RUN sudo cmake ..
+RUN sudo make
 
 WORKDIR /usr/src/service
 
