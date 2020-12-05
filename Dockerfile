@@ -27,6 +27,9 @@ RUN make
 # Copy binary to fresh ubuntu image
 FROM ubuntu:18.04 as runner
 
+RUN groupadd -r ubuntu && useradd --no-log-init -r -g ubuntu ubuntu
+USER ubuntu:ubuntu
+
 COPY --from=builder /usr/src/service/build/bin/http-service /usr/bin/http-service
 EXPOSE 8080
 
