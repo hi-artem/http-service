@@ -1,5 +1,4 @@
 #include "http_service.hpp"
-#include "http_connection.hpp"
 
 http_service::http_service(std::string address, std::string port) {
   this->address = net::ip::make_address(address);

@@ -1,11 +1,4 @@
 #include <boost/log/trivial.hpp>
-#include <chrono>
-#include <cstdlib>
-#include <ctime>
-#include <iostream>
-#include <memory>
-#include <string>
-
 #include "http_service.hpp"
 
 int main(int argc, char *argv[]) {
