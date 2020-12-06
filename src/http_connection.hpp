@@ -21,7 +21,6 @@ namespace http = beast::http;     // from <boost/beast/http.hpp>
 namespace net = boost::asio;      // from <boost/asio.hpp>
 using tcp = boost::asio::ip::tcp; // from <boost/asio/ip/tcp.hpp>
 
-
 class http_connection : public std::enable_shared_from_this<http_connection> {
 public:
   http_connection(tcp::socket socket);

@@ -1,17 +1,6 @@
 #include "http_service.hpp"
 #include "http_connection.hpp"
 
-#include <boost/asio.hpp>
-#include <chrono>
-#include <cstdlib>
-#include <ctime>
-#include <iostream>
-#include <memory>
-#include <string>
-
-namespace net = boost::asio;      // from <boost/asio.hpp>
-using tcp = boost::asio::ip::tcp; // from <boost/asio/ip/tcp.hpp>
-
 http_service::http_service(std::string address, std::string port) {
   this->address = net::ip::make_address(address);
   this->port = static_cast<unsigned short>(std::stoi(port));
