@@ -1,5 +1,6 @@
 [requires]
 boost/1.74.0
+glog/0.4.0
 
 [generators]
 cmake

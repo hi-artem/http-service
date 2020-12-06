@@ -32,5 +32,6 @@ USER ubuntu:ubuntu
 
 COPY --from=builder /usr/src/service/build/bin/http-service /usr/bin/http-service
 EXPOSE 8080
+ENV GLOG_logtostderr=1
 
 CMD [ "http-service", "0.0.0.0", "8080" ]

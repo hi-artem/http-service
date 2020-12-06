@@ -36,7 +36,7 @@ make
 The binary requires address and port to listen on provided as arguments:
 
 ```bash
-./build/bin/http-service 0.0.0.0 8080
+GLOG_logtostderr=1 ./build/bin/http-service 0.0.0.0 8080
 ```
 
 ### Deployment (as Docker container)
